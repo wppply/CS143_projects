@@ -124,7 +124,6 @@ FOR EACH ROW
 CREATE TRIGGER tg_movie_maxmid
 AFTER INSERT ON Movie
 FOR EACH ROW
-  UPDATE Movie
   UPDATE MaxMovieID
      SET id=(SELECT max(id) FROM Movie);
 
