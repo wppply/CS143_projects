@@ -24,7 +24,7 @@
  	<br>
  </p1>
 <form method="GET">
-	<textarea cols="50" rows="10" name="query" ></textarea>
+	<textarea cols="100" rows="10" name="query" ></textarea>
 	<br>
 	<input type="submit" name="submit">
 </form>
@@ -35,25 +35,47 @@
 	mysql_select_db("TEST",$dbc);
 	$query = $_GET["query"];
 	$rs = mysql_query($query,$dbc);
-	if (!$rs) {
-    echo 'Could not run query: ' . mysql_error();
+	// $titleQuery = "select * from INFORMATION_SCHEMA.COLUMNS";
+	// $title = mysql_query($titleQuery,$dbc);
+
+	//show error 
+	if (!$rs ) {
+    echo 'Could not run query: '. mysql_error();
     exit;
 	}
 
-	echo "<table border=1 cellpadding=2>";
 
-	//ADD title later 
+	echo "<table border=1 cellpadding=1>";
+
+	//ADD title
+
+	
+	echo "<tr>";
+	for($i=0; $i<mysql_num_fields($rs);$i++){
+
+		$title = mysql_fetch_field($rs,$i);
+
+		echo "<td>".$title->name."</td>";
+	}
+	echo "</tr>";
+
+
+
+	//add content
 	while($row = mysql_fetch_row($rs)){
 		echo "<tr>";
-		for ($i = 0; $i< count($row)-1;$i++){
+		for ($i = 0; $i< mysql_num_fields($rs);$i++){
+			if (empty($row[$i])){
+				$row[$i] = "null";
+			}
 
-			echo "<td>".$row[$i]."</td>";
+			echo "<td>".htmlspecialchars($row[$i])."</td>";
 		}
 
     	echo "</tr>\n";
 	}
-	
-	echo "</tr>";
+
+
 
 	echo "</table>";
 
