@@ -1,5 +1,6 @@
 --violate.sql
 
+--Primary Key
 /*Primary Key #1: Every movie should have a unique identification number.*/
 insert into Movie Value (2,'No2','2','R','TW');
 	--Duplicate entry '2' for key 'PRIMARY'
@@ -18,15 +19,15 @@ insert into Director Value (16,'a','b','1','2');
 
 /*Primary Key #5: Every mid+genre of a movie should be unique.*/
 insert into MovieGenre Value (3,'Drama');
-	--
+	--Could not run query: Duplicate entry '3-Drama' for key 'PRIMARY'
 
 /*Primary Key #6: Every mid and did pair in MovieDirector should be unique.*/
 insert into MovieDirector Value (3,112);
-	--
+	--Could not run query: Duplicate entry '3-112' for key 'PRIMARY'
 
 /* Primary Key #7: Every mid and aid pair in MovieActor should be unique.*/
 insert into MovieActor Value (100,10208,'hehe');
-	--
+	--Could not run query: Duplicate entry '100-10208' for key 'PRIMARY'
 
 /* Primary Key #8: Every MovieRating should have a unique mid.*/
 insert into MovieRating Value (2,2,2);
@@ -34,8 +35,7 @@ insert into MovieRating Value (2,2,2);
 
 
 
-
-
+--CHECK
 /*CHECK #1: Date of birth should be smaller than date of death*/
 insert into Actor Value (10,'Tom','Jerry','M',20000101,10000202);
 	--Die before Birth
@@ -53,9 +53,11 @@ insert into MovieRating Value (2,2,-1);
 	--negeative rating
 
 
+
+--Referential Integrity
 /* Referential Integrity #1: Movie id should exist in table Movie in order to have sales */
 insert into Sales Value (10,10,10);
-	--
+	--Could not run query: Cannot add or update a child row: a foreign key constraint fails (`TEST`.`Sales`, CONSTRAINT `Sales_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `Movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
 
 /* Referential Integrity #2: Movie id should exist in table Movie in order to have MovieGenre*/
 insert into MovieGenre Value (10,'Drama');
@@ -83,8 +85,8 @@ insert into MovieRating Value (0,2,2);
 	--Could not run query: Cannot add or update a child row: a foreign key constraint fails (`TEST`.`MovieRating`, CONSTRAINT `MovieRating_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `Movie` (`id`))
 
 /* Referential Integrity #8: Movie id should exist in table Movie in order to have mid in Review.*/
-insert into Review Value ('a0',0,2,'a0');
-	--
+insert into Review Value ('a0',0,5000,80,'a0');
+	--Could not run query: Cannot add or update a child row: a foreign key constraint fails (`TEST`.`Review`, CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `Movie` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
 
 
 

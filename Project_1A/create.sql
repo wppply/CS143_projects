@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS Movie (
 id INT PRIMARY KEY NOT NULL, 
 /*Primary Key #1: Every movie should have a unique identification number.*/
@@ -21,7 +22,6 @@ CHECK (dob <= dod)
 )ENGINE = INNODB;
 
 
-
 CREATE TABLE IF NOT EXISTS Sales (
 mid INT PRIMARY KEY NOT NULL,
 /*Primary Key #3: Every movie should have a unique record of sales.*/
@@ -35,7 +35,6 @@ ON DELETE CASCADE,
 CHECK (ticketsSold >= 0)
 /*Check #2: Tickets Sold should be non negative.*/
 )ENGINE = INNODB;
-
 
 
 CREATE TABLE IF NOT EXISTS Director (
