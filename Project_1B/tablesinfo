@@ -1,0 +1,19 @@
+Movie(id, title, year, rating, company)
+
+Actor(id, last, first, sex, dob, dod)
+
+Sales(mid, ticketsSold, totalIncome)
+
+Director(id, last, first, dob, dod)
+
+MovieGenre(mid, genre)
+
+MovieDirector(mid, did)
+
+MovieActor(mid, aid, role)
+
+MovieRating(mid, imdb, rot)
+
+Review(name, time, mid, rating, comment)
+
+MaxPersonID(id)
