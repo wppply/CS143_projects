@@ -44,7 +44,7 @@
     exit;
 	}
 
-
+	echo "<h3> matching Actors".strval(strlen(1))."</h3>";
 	echo "<table border=1 cellpadding=1>";
 
 	//ADD title
