@@ -1,18 +1,14 @@
-.container{
-  margin-top: 100px;
-}
+
 .side-bar{
 
   float:left;
   width:17%;
   position: fixed;
-  border-right: solid 2px;
 
   padding: 5px 8px;
 
 }
-.nav a,
-.tag-list a{
+.nav a{
 
   padding: 5px 8px;
   color:#888;
@@ -24,10 +20,11 @@
   transition: font-size 100ms;
 }
 
-.tag-list a:hover{
+.nav a:hover{
   color:#eee;
   font-size: 13px;
 }
+
 
 .side-bar > * {
   padding: 10px 10px;
