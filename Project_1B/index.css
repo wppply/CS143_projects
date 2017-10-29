@@ -1,0 +1,32 @@
+
+.side-bar{
+
+  float:left;
+  width:17%;
+  position: fixed;
+
+  padding: 5px 8px;
+
+}
+.nav a{
+
+  padding: 5px 8px;
+  color:#888;
+  font-size: 12px;
+
+  -webkit-transition: color 100ms;
+  -o-transition:color 100ms;
+  transition: color 100ms;
+  transition: font-size 100ms;
+}
+
+.nav a:hover{
+  color:#eee;
+  font-size: 13px;
+}
+
+
+.side-bar > * {
+  padding: 10px 10px;
+}
+
