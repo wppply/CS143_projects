@@ -8,7 +8,7 @@
 <body>
 	<nav class="navbar navbar-dark bg-dark ">
 		<div class="container-fluid">
-			<a class="navbar-brand " href="search.php">CS143</a>
+			<a class="navbar-brand " href="index.php">CS143</a>
 			<form class="form-inline" method="GET" action ="search.php">
 				<input name = "searchbox" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 				<input name = "submit" class="btn btn-outline-success my-2 my-sm-0" type="submit" >
@@ -16,26 +16,27 @@
 			</form>
 		</div>
 	</nav>
-	<div class = "side-bar" >
-		<div class="nav" >
-			<span class = "side-title">Add New Content</span>
-			<br>
-			<a href="#" class = "item">Actor/Director</a>
-			<br>
-			<a href="#" class = "item">Movie Info</a>
-			<br>
-			<a href="#" class = "item">Movie/Actor Relation</a>
 
-			<a href="#" class = "item">Movie/Director Relation</a>
-			<br>
-			<span class = "side-title">Browsering Content</span>
-			<br>
+			<div class = "side-bar" >
+				<div class="nav" >
+					<span class = "side-title">Add New Content</span>
+					<br>
+					<a href="addperson.php" class = "item">Actor/Director</a>
+					<br>
+					<a href="addmovie.php" class = "item">Moive Info</a>
+					<br>
+					<a href="movieactor.php" class = "item">Movie/Actor Relation</a>
+
+					<a href="moviedirector.php" class = "item">Movie/Director Relation</a>
+					<br>
+					<span class = "side-title">Browsering Content</span>
+					<br>
 			<a href="actorinfo.php" class = "item">Actor Info</a>
 			<br>
 			<a href="movieinfo.php" class = "item">Movie Info</a>
-			<br>
-		</div>
-	</div>
+					<br>
+				</div>
+			</div>
 
 	<div id = "main" class="container" style="float:right; width:70%;margin-top: 20px;">
 
@@ -43,7 +44,7 @@
 		include( 'useful_functions.php');
 		$id = $_GET['id'] ? $_GET['id'] : '-1';
 		$dbc = mysql_connect("localhost","cs143","");
-		mysql_select_db("TEST",$dbc);
+		mysql_select_db("CS143",$dbc);
 
 
 		$actor_query = $cast_query = 'SELECT distinct CONCAT(first, " ",last) as name 

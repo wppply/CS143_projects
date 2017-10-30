@@ -47,7 +47,7 @@
 
 
 				$dbc = mysql_connect("localhost","cs143","");
-				mysql_select_db("TEST",$dbc);
+				mysql_select_db("CS143",$dbc);
 //Get input box
 
 				if ($_GET["searchbox"] != ""){

@@ -22,13 +22,13 @@
 				<div class="nav" >
 					<span class = "side-title">Add New Content</span>
 					<br>
-					<a href="#" class = "item">Actor/Director</a>
+					<a href="addperson.php" class = "item">Actor/Director</a>
 					<br>
-					<a href="#" class = "item">Moive Info</a>
+					<a href="addmovie.php" class = "item">Moive Info</a>
 					<br>
-					<a href="#" class = "item">Movie/Actor Relation</a>
+					<a href="movieactor.php" class = "item">Movie/Actor Relation</a>
 
-					<a href="#" class = "item">Movie/Director Relation</a>
+					<a href="moviedirector.php" class = "item">Movie/Director Relation</a>
 					<br>
 					<span class = "side-title">Browsering Content</span>
 					<br>
