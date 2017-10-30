@@ -47,7 +47,7 @@
 		mysql_select_db("CS143",$dbc);
 
 
-		$actor_query = $cast_query = 'SELECT distinct CONCAT(first, " ",last) as name 
+		$actor_query  = 'SELECT distinct CONCAT(first, " ",last) as name, Actor.id
 		FROM Actor JOIN MovieActor ON MovieActor.aid = Actor.id
 		WHERE MovieActor.aid = '. $id;
 
@@ -58,7 +58,7 @@
 				}
 		echo '<h4> Actor info</h4>';
 
-		drawtable($actor_rs,'actorinfo.php');
+		tablewithoutlink($actor_rs,'actorinfo.php');
 
 //cast
 		$cast_query = 'SELECT distinct Movie.title as MovieTitle, MovieActor.role as Role,  MovieActor.mid as MID
@@ -68,7 +68,7 @@
 
 		$cast_rs = mysql_query($cast_query,$dbc);
 		
-		drawtable($cast_rs,'actorinfo.php');
+		drawtable($cast_rs,'movieinfo.php');
 
 		if (!$cast_rs ) {
 					echo 'Could not run query: '. mysql_error();

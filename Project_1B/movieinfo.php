@@ -38,19 +38,22 @@
 
 	<div id = "main" class="container" style="float:right; width:70%;margin-top: 20px;">
 
-		<form action="#">
-			<button type="button" class="btn btn-primary" >
-				Add Comment
-
-			</button>
-
-		</form>
 
 		<?php
 		include( 'useful_functions.php');
 		$id = $_GET['id'] ? $_GET['id'] : '-1';
 		$dbc = mysql_connect("localhost","cs143","");
 		mysql_select_db("CS143",$dbc);
+
+
+//Add review
+		// echo '<form action="comments.php?id='.$id.'">
+		// 	<button type="submit" class="btn btn-primary" >
+		// 		Add Comment
+		// 	</button>
+		// 	</form>';
+
+		echo '<h2>'.change2link('Add Comment', $id,'comments.php').'</h2>';
 
 
 
@@ -60,15 +63,15 @@
 
 		echo '<h4> moive info</h4>';
 
-		drawtable($movie_rs,'movieinfo.php');
+		tablewithoutlink($movie_rs,'movieinfo.php');
 
 
 
 //cast
-		$cast_query = 'SELECT distinct MovieActor.role as Role,  MovieActor.mid as MID
+		$cast_query = 'SELECT distinct MovieActor.role as Role, Concat(Actor.first, " " ,Actor.last) as name , Actor.id
 		FROM Actor JOIN MovieActor ON MovieActor.aid = Actor.id
 
-		WHERE MovieActor.mid = '. $id;//aid
+		WHERE MovieActor.mid = '. $id;
 
 		$cast_rs = mysql_query($cast_query,$dbc);
 		echo '<h4> cast info</h4>';

@@ -13,7 +13,6 @@
 		<form class="form-inline" method="GET">
 			<input name = "searchbox" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 			<input name = "submit" class="btn btn-outline-success my-2 my-sm-0" type="submit" >
-
 		</form>
 	</div>
 </nav>
@@ -22,13 +21,13 @@
 				<div class="nav" >
 					<span class = "side-title">Add New Content</span>
 					<br>
-					<a href="#" class = "item">Actor/Director</a>
+					<a href="addperson.php" class = "item">Actor/Director</a>
 					<br>
-					<a href="#" class = "item">Moive Info</a>
+					<a href="addmovie.php" class = "item">Moive Info</a>
 					<br>
-					<a href="#" class = "item">Movie/Actor Relation</a>
+					<a href="movieactor.php" class = "item">Movie/Actor Relation</a>
 
-					<a href="#" class = "item">Movie/Director Relation</a>
+					<a href="moviedirector.php" class = "item">Movie/Director Relation</a>
 					<br>
 					<span class = "side-title">Browsering Content</span>
 					<br>
@@ -77,9 +76,8 @@
 						$m_query .= $m_raw[$i]."%' ";
 						
 						if ($i != count($m_raw)-1){
-						$m_query .= "INTERSECT SELECT title, id FROM Movie WHERE title like '%";
+						$m_query .= "and title like '%";
 						}
-
 
 					}
 
@@ -100,9 +98,6 @@
 //draw table for movie
 				echo "<h3> matching Movies</h3>";
 
-//error here 
-				echo $m_query;
-				echo "<br><br>";
 
 				$m_rs = mysql_query($m_query,$dbc);
 				if (!$m_rs ) {
