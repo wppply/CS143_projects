@@ -45,7 +45,7 @@
  		$mid = $_GET['id'] ;
  		$dbc = mysql_connect("localhost","cs143","");
 		mysql_select_db("CS143",$dbc);
-		$name_query = "SELECT title FROM Movie where id = 2308";
+		$name_query = "SELECT title FROM Movie where id = $mid";
 		$name_rs = mysql_query($name_query,$dbc);
 		if (!$name_rs ) {
 	    			echo 'Could not run query: '. mysql_error();

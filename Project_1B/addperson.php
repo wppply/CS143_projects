@@ -71,9 +71,10 @@
 					echo "current id not reachable:".mysql_error();
 					exit;
 				}
-				echo $row[0];
+
+
 				$id=$row[0]+1;
-				echo $id;
+
 				$flag=0;
 				if(empty($_GET["first"])){
 					echo "First Name should not be empty!<br>";
@@ -90,9 +91,12 @@
 				if($flag){
 					exit;
 				}
+
+				$first = htmlspecialchars($_GET["first"]);
+
 				if($_GET["type"]=="Actor"){
 					if(!empty($_GET['dod'])){
-						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$_GET["first"]."','".$_GET["sex"]."','".$_GET["dob"]."','".$_GET["dod"]."')";
+						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$first."','".$_GET["sex"]."','".$_GET["dob"]."','".$_GET["dod"]."')";
 					}
 					else{
 						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$_GET["first"]."','".$_GET["sex"]."','".$_GET["dob"]."',\N)";
@@ -114,7 +118,7 @@
 				}
 				else{
 					echo 'Successful insertion!';
-					echo $query;
+
 					$update="UPDATE MaxPersonID SET id=".$id;
 					$rs3=mysql_query($update,$dbc);
 					if(!$rs3){

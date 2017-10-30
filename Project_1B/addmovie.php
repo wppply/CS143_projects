@@ -87,9 +87,9 @@
 					echo "current id not reachable:".mysql_error();
 					exit;
 				}
-				echo $row[0];
+
 				$id=$row[0]+1;
-				echo $id;
+
 				$flag=0;
 				if(empty($_GET["title"])){
 					echo "Movie title should not be empty!<br>";
@@ -111,7 +111,7 @@
 				if($flag){
 					exit;
 				}
-				echo $flag;
+
 				$query = "INSERT INTO Movie(id,title,year,rating,company) VALUES (".$id.",'".$_GET["title"]."',".$_GET["year"].",'".$_GET["rating"]."','".$_GET["company"]."')";
 				$rs2 = mysql_query($query,$dbc);
 				if (!$rs2 ) {
@@ -120,7 +120,7 @@
 				}
 				else{
 					echo 'Successful insertion!';
-					echo $query;
+	
 					$update="UPDATE MaxMovieID SET id=".$id;
 					$rs4=mysql_query($update,$dbc);
 					if(!$rs4){
@@ -130,7 +130,7 @@
 					for ($i=1;$i<20;$i++){
 						if(!empty($_GET["a".$i])){
 							$query = "INSERT INTO MovieGenre(mid, genre) VALUES(".$id.",'".$_GET["a".$i]."')";
-							echo $query;
+
 							$rs3=mysql_query($query,$dbc);
 							if(!$rs4){
 								echo 'Could not insert genre: '.mysql_error();

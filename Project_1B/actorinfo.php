@@ -47,9 +47,9 @@
 		mysql_select_db("CS143",$dbc);
 
 
-		$actor_query  = 'SELECT distinct CONCAT(first, " ",last) as name, Actor.id
-		FROM Actor JOIN MovieActor ON MovieActor.aid = Actor.id
-		WHERE MovieActor.aid = '. $id;
+		$actor_query  = 'SELECT distinct CONCAT(first, " ",last) as name, id
+		FROM Actor
+		WHERE id = '. $id;
 
 		$actor_rs = mysql_query($actor_query,$dbc);
 				if (!$actor_rs ) {
