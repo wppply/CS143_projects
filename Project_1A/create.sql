@@ -125,7 +125,7 @@ time TIMESTAMP  NOT NULL,
 mid INT  NOT NULL,
 rating INT  NOT NULL,
 comment VARCHAR(500)  NOT NULL,
-PRIMARY KEY(name,time,mid),
+--PRIMARY KEY(time,mid),
 /*Primary Key #9: Every reviewer's name, time and movie id are unique in the table.*/
 FOREIGN KEY fk_mid(mid)
 REFERENCES Movie(id)
