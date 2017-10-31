@@ -72,7 +72,7 @@
 		 		<input type="checkbox" name="a17" value="Thriller">Thriller</input>
 		 		<input type="checkbox" name="a18" value="War">War</input>
 		 		<input type="checkbox" name="a19" value="Western">Western</input><br>
-			<input type="submit" class="btn btn-outline-success my-2 my-sm-0" name="submit">
+			<input type="submit" name="submit">
 		 </form>
 
 		 <?php
@@ -111,8 +111,9 @@
 				if($flag){
 					exit;
 				}
-
-				$query = "INSERT INTO Movie(id,title,year,rating,company) VALUES (".$id.",'".$_GET["title"]."',".$_GET["year"].",'".$_GET["rating"]."','".$_GET["company"]."')";
+				$title=str_replace("'","''",$_GET["title"]);
+				$company=str_replace("'","''",$_GET["company"]);
+				$query = "INSERT INTO Movie(id,title,year,rating,company) VALUES (".$id.",'".$title."',".$_GET["year"].",'".$_GET["rating"]."','".$company."')";
 				$rs2 = mysql_query($query,$dbc);
 				if (!$rs2 ) {
 			    	echo 'Could not run query: '. mysql_error();

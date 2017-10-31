@@ -74,7 +74,6 @@
 
 
 				$id=$row[0]+1;
-
 				$flag=0;
 				if(empty($_GET["first"])){
 					echo "First Name should not be empty!<br>";
@@ -92,22 +91,22 @@
 					exit;
 				}
 
-				$first = htmlspecialchars($_GET["first"]);
-
+				$first=str_replace("'","''",$_GET["first"]);
+				$last=str_replace("'","''",$_GET["last"]);
 				if($_GET["type"]=="Actor"){
 					if(!empty($_GET['dod'])){
-						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$first."','".$_GET["sex"]."','".$_GET["dob"]."','".$_GET["dod"]."')";
+						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$last."','".$first."','".$_GET["sex"]."','".$_GET["dob"]."','".$_GET["dod"]."')";
 					}
 					else{
-						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$_GET["first"]."','".$_GET["sex"]."','".$_GET["dob"]."',\N)";
+						$query = "INSERT INTO Actor(id,last,first,sex,dob,dod) VALUES (".$id.",'".$last."','".$first."','".$_GET["sex"]."','".$_GET["dob"]."',\N)";
 					}
 				}
 				else{
 					if(!empty($_GET['dod'])){
-						$query = "INSERT INTO Director(id,last,first,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$_GET["first"]."','".$_GET["dob"]."','".$_GET["dod"]."')";
+						$query = "INSERT INTO Director(id,last,first,dob,dod) VALUES (".$id.",'".$last."','".$first."','".$_GET["dob"]."','".$_GET["dod"]."')";
 					}
 					else{
-						$query = "INSERT INTO Director(id,last,first,dob,dod) VALUES (".$id.",'".$_GET["last"]."','".$_GET["first"]."','".$_GET["dob"]."',\N)";
+						$query = "INSERT INTO Director(id,last,first,dob,dod) VALUES (".$id.",'".$last."','".$first."','".$_GET["dob"]."',\N)";
 					}
 
 				}
