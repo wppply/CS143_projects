@@ -1,14 +1,23 @@
 Four input pages:
 
 Page I1: A page that lets users to add actor and/or director information. Here are some name examples: Chu-Cheng Hsieh, J'son Lee, etc.
+        Able to add name, accept special character like '
+
 Page I2: A page that lets users to add movie information.
+        Able to add movie info, accept special character like '
 Page I3: A page that lets users to add comments to movies.
+        Able to add comments (without name as anonymous)
 Page I4: A page that lets users to add "actor to movie" relation(s).
+        Able to add relation with select input
 Page I5: A page that lets users to add "director to movie" relation(s).
 Two browsing pages:
 Page B1: A page that shows actor information.
+        showbasic actor info and movies with url to movie
 Show links to the movies that the actor was in.
 Page B2: A page that shows movie information.
+        showbasic movie info and cast info with url to actor
+
+
 Show Title, Producer, MPAA Rating, Director, Genre of this movie.
 Show links to the actors/actresses that were in this movie.
 Show the average score of the movie based on user feedbacks.
