@@ -72,7 +72,7 @@
 		 		<input type="checkbox" name="a17" value="Thriller">Thriller</input>
 		 		<input type="checkbox" name="a18" value="War">War</input>
 		 		<input type="checkbox" name="a19" value="Western">Western</input><br>
-			<input type="submit" name="submit">
+			<input type="submit" class="btn btn-outline-success my-2 my-sm-0" name="submit">
 		 </form>
 
 		 <?php

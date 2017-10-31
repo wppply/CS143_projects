@@ -50,7 +50,7 @@
 //Get input box
 
 				if ($_GET["searchbox"] != ""){
-					$a_raw = split(' ',$_GET["searchbox"] ,2);
+					$a_raw = split(' ',str_replace("'"," ",$_GET["searchbox"] ),2);
 
 					$a_query = 
 					"SELECT first, last, id FROM Actor WHERE first like 
@@ -68,7 +68,8 @@
 				}
 
 				if ($_GET["searchbox"] != ""){
-					$m_raw = split(' ',$_GET["searchbox"] ,10);
+					$m_raw = split(' ',str_replace("'"," ",$_GET["searchbox"] ),10);
+
 
 					$m_query = "SELECT title, id FROM Movie WHERE title like '%";
 

@@ -58,7 +58,9 @@
 
 
 //movie
-		$movie_query = 'SELECT title, year, rating, company,id FROM Movie WHERE id ='.$id;
+		$movie_query = 'SELECT distinct title, year, rating, company, id
+		FROM Movie
+		 WHERE id ='.$id;
 		$movie_rs = mysql_query($movie_query,$dbc);
 
 		echo '<h4> moive info</h4>';
@@ -66,6 +68,35 @@
 		tablewithoutlink($movie_rs,'movieinfo.php');
 
 
+//Director
+		$D_query = 'SELECT distinct Concat(Director.first, " " ,Director.last) as name , Director.id
+		FROM Director JOIN MovieDirector ON MovieDirector.did = Director.id
+
+		WHERE MovieDirector.mid = '. $id;
+
+		$D_rs = mysql_query($D_query,$dbc);
+		echo '<h4> Director info</h4>';
+		tablewithoutlink($D_rs);
+
+		if (!$D_rs ) {
+					echo 'Could not run query: '. mysql_error();
+					exit;
+				}
+
+
+//genre 
+		$G_query = 'SELECT  genre
+		FROM MovieGenre
+		WHERE mid = '. $id;
+
+		$G_rs = mysql_query($G_query,$dbc);
+		echo '<h4> Genre</h4>';
+
+		if (!$G_rs ) {
+					echo 'Could not run query: '. mysql_error();
+					exit;
+				}
+		tablewithoutlink($G_rs);
 
 //cast
 		$cast_query = 'SELECT distinct MovieActor.role as Role, Concat(Actor.first, " " ,Actor.last) as name , Actor.id

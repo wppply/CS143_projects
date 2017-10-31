@@ -87,7 +87,7 @@
  		<?php
  			if(isset($_POST["submit"]) && isset($_POST["comment"])){
 
-				$name = $_POST["name"];
+				$name = ($_POST["name"]=='') ?  'anonymous' : $_POST["name"];
 				$rating = $_POST["rating"];
 				$comment = $_POST["comment"];
 				$time = time();
