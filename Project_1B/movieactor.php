@@ -45,7 +45,7 @@
 				<?php
 					$db= mysql_connect("localhost","cs143","");
 					mysql_select_db("CS143",$db);
-					$sql="select * from Movie";
+					$sql="select * from Movie Order by id desc";
 					$res=mysql_query($sql,$db);
 					while($row=mysql_fetch_array($res)){
 						echo "<option value=".$row[id].">".$row[title]."(".$row[year].")</option>";
@@ -60,7 +60,7 @@
 				<?php
 					$db= mysql_connect("localhost","cs143","");
 					mysql_select_db("CS143",$db);
-					$sql="select * from Actor";
+					$sql="select * from Actor order by id desc ";
 					$res=mysql_query($sql,$db);
 					while($row=mysql_fetch_array($res)){
 						echo "<option value=".$row[id].">".$row[first]." ".$row[last]."(".$row[dob].")</option>";
@@ -70,7 +70,7 @@
 				?>
 			</select><br>
 			Role:<br> <textarea cols="50" rows="1" name="role" ></textarea><br>
-			<input type="submit" name="submit">
+			<input type="submit" name="submit" class="btn btn-outline-success my-2 my-sm-0">
 		 </form>
 
 		 <?php

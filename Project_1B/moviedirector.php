@@ -72,7 +72,7 @@
 				mysql_close($db);
 			?>
 		</select><br>
-		<input type="submit" name="submit">
+		<input type="submit" name="submit" class="btn btn-outline-success my-2 my-sm-0">
 		</form>
 
 		<?php

@@ -53,13 +53,13 @@
 					$a_raw = split(' ',str_replace("'"," ",$_GET["searchbox"] ),2);
 
 					$a_query = 
-					"SELECT first, last, id FROM Actor WHERE first like 
+					"SELECT first, last,dob as DateofBirth, id FROM Actor WHERE first like 
 					'%"
 					.$a_raw[0].
 					"%' 
 					AND last like '%".$a_raw[1]."%' union ".
 
-					"SELECT first, last, id  FROM Actor WHERE first like 
+					"SELECT first, last, dob as DateofBirth, id  FROM Actor WHERE first like 
 					'%"
 					.$a_raw[1].
 					"%' 
@@ -67,11 +67,32 @@
 
 				}
 
+				// if ($_GET["searchbox"] != ""){
+				// 	$a_raw = split(' ',str_replace("'"," ",$_GET["searchbox"] ),10);
+
+
+				// 	$a_query = "SELECT distinct first, last, id FROM Actor WHERE ";
+
+				// 	for($i = 0; $i<count($a_raw);$i++){
+				// 		$a_query .= "first like '%".$a_raw[$i]."%' or last like '%".$a_raw[$i]."%'";
+						
+				// 		if ($i != count($a_raw)-1){
+				// 		$a_query .= "and ";
+				// 		}
+
+				// 	}
+
+				// 	$a_query .="";
+
+
+				// }
+
+
 				if ($_GET["searchbox"] != ""){
 					$m_raw = split(' ',str_replace("'"," ",$_GET["searchbox"] ),10);
 
 
-					$m_query = "SELECT title, id FROM Movie WHERE title like '%";
+					$m_query = "SELECT title, year,id FROM Movie WHERE title like '%";
 
 					for($i = 0; $i<count($m_raw);$i++){
 						$m_query .= $m_raw[$i]."%' ";

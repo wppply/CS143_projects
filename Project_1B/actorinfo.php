@@ -47,7 +47,7 @@
 		mysql_select_db("CS143",$dbc);
 
 
-		$actor_query  = 'SELECT distinct CONCAT(first, " ",last) as name, id
+		$actor_query  = 'SELECT distinct CONCAT(first, " ",last) as name, dob as DateofBirth, dod as DateofDeath,id
 		FROM Actor
 		WHERE id = '. $id;
 

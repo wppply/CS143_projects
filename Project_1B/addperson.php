@@ -56,7 +56,7 @@
 			eg:19940508<br>
 			Date of Death:<br> <textarea cols="50" rows="1" name="dod" ></textarea><br>
 			eg:leave blank for alive ones<br>
-			<input type="submit" name="submit">
+			<input type="submit" name="submit" class="btn btn-outline-success my-2 my-sm-0">
  		</form>
 
  		<?php
