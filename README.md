@@ -29,8 +29,9 @@ Show all user comments.
 Contain "Add Comment" button which links to Page I3 where users can add comments.
 One search page:
 
+---
+
 Page S1: A page that lets users search for an actor/actress/movie through a keyword search interface. (For actor/actress, you should examine first/last name, and for movie, you should examine title.)
------
 
 The project was split by search/view pages and addinfo pages.
 
